@@ -3,25 +3,36 @@ package Employee;
 
 import Utils.*;
 
-import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class AddEmployee extends Employee{
     public  AddEmployee(){
         Employee empL = new Employee();
+        //name
         System.out.print("Name of Employee: ");
         empL.setEmployeeName(Input.sc.next());
 
-        System.out.print("Employee ID number: ");
-        empL.setEmployeeID(Input.sc.nextInt());
+        //ID
+        while(true) {
 
+            System.out.print("Employee ID number: ");
+            int currID = Input.sc.nextInt();
+            if(!EmployeeTable.employeeID.contains(currID)) {
+                empL.setEmployeeID(currID);
+                break;
+            }
+            else {
+                System.out.println("ID Already Exist!!! \n Enter valid Id\n");
+            }
 
+        }
+
+        //Email Id
         while(true) {
             System.out.print("Employee Mail id: ");
             String userEmail = Input.sc.next();
-            if (CheckMail.CheckMail(userEmail)) {
+            if (Utility.CheckMail(userEmail)) {
                 empL.setEmployeeEmailID(userEmail);
                 break;
             } else {
@@ -29,7 +40,8 @@ public class AddEmployee extends Employee{
             }
         }
 
-        System.out.print("Select Employee Gender- 1.Male 2.Female 3.Others");
+        //Gender
+        System.out.println("Select Employee Gender-\n 1.Male\n 2.Female\n 3.Others");
         int userOption=Input.sc.nextInt();
         switch (userOption){
             case 1:{
@@ -46,14 +58,16 @@ public class AddEmployee extends Employee{
             }
         }
 
+        //Age
         System.out.print("Employee Age: ");
         empL.setEmployeeAge(Input.sc.nextInt());
 
 
+        //Contact Number
         while(true) {
             System.out.print("Employee Phone Number: ");
             String userPhone = Input.sc.next();
-            if(CheckPhoneNumber.isValidMobileNo(userPhone)){
+            if(Utility.isValidMobileNo(userPhone)){
                 empL.setEmployeePhoneNo(userPhone);
                 break;
             }
@@ -62,7 +76,8 @@ public class AddEmployee extends Employee{
             }
         }
 
-        System.out.println("---Select Department---");
+        //Department
+        System.out.println("-*-*-Select Department-*-*-");
 
         for(int i = 0;i<Teams.department.size();i++ ){
             System.out.println(i+1+"."+Teams.department.get(i));
@@ -72,7 +87,7 @@ public class AddEmployee extends Employee{
         if (N == N) {
             empL.setEmployeeDepartment(Teams.department.get(N - 1));
 
-            System.out.println("---Select Team Name---");
+            System.out.println("-*-*-Select Team Name-*-*-");
             for (Map.Entry<String, ArrayList> entry : Teams.departmentTeam.entrySet()) {
                 if (entry.getKey().equals(Teams.department.get(N - 1))) {
                     ArrayList team = entry.getValue();
@@ -90,108 +105,10 @@ public class AddEmployee extends Employee{
             }
         }
 
-//                System.out.println("A.Testing Team");
-//                System.out.println("B.Development Team");
-//                System.out.println("C.Design Team");
-//                System.out.println("D.None");
-//                switch (Input.sc.next()) {
-//                    case "A": {
-//                        empL.setEmployeeTeamName("Testing Team");
-//                        break;
-//                    }
-//                    case "B":{
-//                        empL.setEmployeeTeamName("Development Team");
-//                        break;
-//                    }
-//                    case "C": {
-//                        empL.setEmployeeTeamName("Design Team");
-//                        break;
-//                    }
-//                    case "D":{
-//                        empL.setEmployeeTeamName("None");
-//                        break;
-//                    }
-//
-//                }
-//                break;
-//            }
-//            case 2:{
-//                empL.setEmployeeDepartment("FINANCE");
-//                System.out.println("---Select Team Name---");
-//                System.out.println("A.Accounting");
-//                System.out.println("B.Purchasing");
-//                System.out.println("C.None");
-//                switch (Input.sc.next()) {
-//                    case "A": {
-//                        empL.setEmployeeTeamName("Accounting Team");
-//                        break;
-//                    }
-//                    case "B": {
-//                        empL.setEmployeeTeamName("Purchasing Team");
-//                        break;
-//                    }
-//                    case "C": {
-//                        empL.setEmployeeTeamName("None");
-//                        break;
-//                    }
-//                }
-//                break;
-//
-//            }
-//            case 3:{
-//                empL.setEmployeeDepartment("MARKETING");
-//                System.out.println("---Select Team Name---");
-//                System.out.println("A.Sales");
-//                System.out.println("B.Customer Service");
-//                System.out.println("C.None");
-//                switch (Input.sc.next()) {
-//                    case "A": {
-//                        empL.setEmployeeTeamName("Sales Team");
-//                        break;
-//                    }
-//                    case "B": {
-//                        empL.setEmployeeTeamName("Customer Service Team");
-//                        break;
-//                    }
-//                    case "C": {
-//                        empL.setEmployeeTeamName("None");
-//                        break;
-//                    }
-//                }
-//                break;
-//            }
-//            case 4:{
-//                empL.setEmployeeDepartment("MANUFACTURING");
-//                System.out.println("---Select Team Name---");
-//                System.out.println("A.Line Manager");
-//                System.out.println("B.Production Team");
-//                System.out.println("C.Distribution");
-//                System.out.println("D.None");
-//                switch (Input.sc.next()) {
-//                    case "A": {
-//                        empL.setEmployeeTeamName("Line Managing Team");
-//                        break;
-//                    }
-//                    case "B":{
-//                        empL.setEmployeeTeamName("Line Manager");
-//                        break;
-//                    }
-//                    case "C": {
-//                        empL.setEmployeeTeamName("Distribution Team");
-//                        break;
-//                    }
-//                    case "D":{
-//                        empL.setEmployeeTeamName("None");
-//                        break;
-//                    }
-//
-//                }
-//
-//                break;
-//            }
-//        }
 
-        System.out.println("---Select Role---");
+
+        //Role
+        System.out.println("-*-*-Select Role-*-*-");
         System.out.println("A.Department Head");
         System.out.println("B.Team Head");
         System.out.println("C.Team Member");
@@ -211,6 +128,7 @@ public class AddEmployee extends Employee{
 
         }
 
+        //Marital Status
         System.out.println("Employee Marital Status");
         System.out.println("A.Married");
         System.out.println("B.Single");
@@ -234,21 +152,26 @@ public class AddEmployee extends Employee{
                 break;
             }
         }
+
+        //joining date
         while(true) {
             System.out.println("Employee Joining Date (dd-MM-yyyy)");
             String currDate = Input.sc.next();
-            if(CheckDate.isValidDate(currDate)){
-                empL.setEmployeeJoiningDate(Input.sc.next());
+            if(Utility.CheckDate(currDate)){
+                empL.setEmployeeJoiningDate(currDate);
                 break;
             }
             else {
-                System.out.println("Enter Valid Date");
+                System.out.println("Enter Valid Date!!!");
             }
         }
 
+        //Adding to Details to Hashmap
         EmployeeTable.employeeTable.put(empL.getEmployeeID(),empL);
         EmployeeTable.employeeID.add(empL.employeeID);
-        System.out.println("Employee Successfully Added");
+
+        //Acknowledgement
+        System.out.println("Employee Successfully Added\n\n");
 
     }
 

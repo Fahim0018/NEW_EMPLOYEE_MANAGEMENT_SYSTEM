@@ -1,8 +1,7 @@
 package Employee;
 
-import Utils.CheckDate;
-import Utils.CheckMail;
-import Utils.CheckPhoneNumber;
+
+import Utils.Utility;
 
 import java.util.Map;
 
@@ -22,7 +21,7 @@ public class UpdateEmployeeDetails {
                 while(true) {
                     System.out.print("Employee Mail id: ");
                     String userEmail = Input.sc.next();
-                    if (CheckMail.CheckMail(userEmail)) {
+                    if (Utility.CheckMail(userEmail)) {
                         empL.setEmployeeEmailID(userEmail);
                         break;
                     } else {
@@ -54,7 +53,7 @@ public class UpdateEmployeeDetails {
                 while(true) {
                     System.out.print("Employee Phone Number: ");
                     String userPhone = Input.sc.next();
-                    if(CheckPhoneNumber.isValidMobileNo(userPhone)){
+                    if(Utility.isValidMobileNo(userPhone)){
                         empL.setEmployeePhoneNo(userPhone);
                         break;
                     }
@@ -220,7 +219,7 @@ public class UpdateEmployeeDetails {
                 while(true) {
                     System.out.println("Employee Joining Date (dd-MM-yyyy)");
                     String currDate = Input.sc.next();
-                    if(CheckDate.isValidDate(currDate)){
+                    if(Utility.CheckDate(currDate)){
                         empL.setEmployeeJoiningDate(Input.sc.next());
                         break;
                     }

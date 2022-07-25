@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Leaves {
-    ArrayList<String> leaves = new ArrayList<>();
+    public static ArrayList<String> leaves = new ArrayList<>();
 
     Leaves(){
         leaves.add("Casual");
