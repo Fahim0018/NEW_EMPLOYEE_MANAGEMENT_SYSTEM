@@ -6,7 +6,7 @@ import java.util.Date;
 public class Leaves {
     public static ArrayList<String> leaves = new ArrayList<>();
 
-    Leaves(){
+    public Leaves(){
         leaves.add("Casual");
         leaves.add("Annual");
         leaves.add("Medical");

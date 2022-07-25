@@ -41,12 +41,7 @@ public class Utility {
                 "A-Z]{2,7}$";
 
         Pattern pat = Pattern.compile(emailRegex);
-        if (pat.matcher(email).matches()){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return pat.matcher(email).matches();
 
 
     }

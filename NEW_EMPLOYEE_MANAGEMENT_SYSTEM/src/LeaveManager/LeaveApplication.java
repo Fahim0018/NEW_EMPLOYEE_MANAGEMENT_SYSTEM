@@ -38,8 +38,9 @@ public class LeaveApplication {
 
 
         //Leave Type
+        Leaves leave= new Leaves();
         System.out.println("-*-*-Select Leave Type-*-*-");
-        for (int i = 0; i < Leaves.leaves.size(); i++) {
+        for (int i = 0; i < leave.leaves.size(); i++) {
             System.out.println(i + 1 + "." + Leaves.leaves.get(i));
         }
         while(true) {
@@ -57,7 +58,7 @@ public class LeaveApplication {
         while(true) {
             System.out.print("Enter Starting Date(yyyy-mm-dd): ");
             startDate = Input.sc.next();
-            if (!Utility.isDatePast(startDate, "yyyy-mm-dd")) {
+            if (!Utility.isDatePast(startDate, "yyyy-MM-dd")) {
                 startDay = Utility.getDay(startDate);
                 startMonth = Utility.getMonth(startDate);
                 startYear = Utility.getYear(startDate);
@@ -73,7 +74,7 @@ public class LeaveApplication {
         while(true) {
             System.out.print("Enter Ending Date(yyyy-mm-dd): ");
             endDate = Input.sc.next();
-            if (!Utility.isDatePast(endDate, "yyyy-mm-dd")) {
+            if (!Utility.isDatePast(endDate, "yyyy-MM-dd")) {
                 endDay = Utility.getDay(startDate);
                 endMonth  = Utility.getMonth(startDate);
                 endYear = Utility.getYear(startDate);

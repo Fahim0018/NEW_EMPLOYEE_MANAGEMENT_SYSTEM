@@ -9,6 +9,22 @@ import java.util.Set;
 
 public class CustomHolidays {
     private final Set<MonthDay> holidays = new HashSet<>();
+    public CustomHolidays(){
+        addHoliday(MonthDay.of(Month.JANUARY,26));
+        addHoliday(MonthDay.of(Month.APRIL,14));
+        addHoliday(MonthDay.of(Month.APRIL,15));
+        addHoliday(MonthDay.of(Month.MAY,3));
+        addHoliday(MonthDay.of(Month.MAY,16));
+        addHoliday(MonthDay.of(Month.JULY,10));
+        addHoliday(MonthDay.of(Month.AUGUST,9));
+        addHoliday(MonthDay.of(Month.AUGUST,15));
+        addHoliday(MonthDay.of(Month.OCTOBER,2));
+        addHoliday(MonthDay.of(Month.OCTOBER,5));
+        addHoliday(MonthDay.of(Month.OCTOBER,7));
+        addHoliday(MonthDay.of(Month.OCTOBER,24));
+        addHoliday(MonthDay.of(Month.NOVEMBER,8));
+        addHoliday(MonthDay.of(Month.DECEMBER,25));
+    }
 
     public void addHoliday(final MonthDay monthDay) {
         holidays.add(monthDay);
