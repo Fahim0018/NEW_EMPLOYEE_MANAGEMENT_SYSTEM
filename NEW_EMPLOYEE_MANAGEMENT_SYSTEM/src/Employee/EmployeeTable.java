@@ -9,5 +9,4 @@ import java.util.List;
 public class EmployeeTable {
     public static HashMap<Integer,Employee> employeeTable = new HashMap<Integer, Employee>();
     public static List<Integer> employeeID = new ArrayList<>();
-
 }

@@ -104,15 +104,14 @@ public class AddEmployee extends Employee{
                 }
             }
         }
-
-
-
+        
         //Role
         System.out.println("-*-*-Select Role-*-*-");
         System.out.println("A.Department Head");
         System.out.println("B.Team Head");
         System.out.println("C.Team Member");
-        switch (Input.sc.next()){
+        String inp = Input.sc.next();
+        switch (inp){
             case "A": {
                 empL.setEmployeeRole("Department Head");
                 break;
@@ -125,8 +124,14 @@ public class AddEmployee extends Employee{
                 empL.setEmployeeRole("Team Member");
                 break;
             }
-
         }
+
+        //direct reporting person
+        System.out.print("Direct Reporting Person: ");
+        empL.setEmployeeDirectReportingPersonName(Input.sc.next());
+        System.out.println("Direct Reporting Person's ID: ");
+        empL.setEmployeeDirectReportingPersonsID(Input.sc.nextInt());
+
 
         //Marital Status
         System.out.println("Employee Marital Status");
@@ -172,10 +177,7 @@ public class AddEmployee extends Employee{
 
         //Acknowledgement
         System.out.println("Employee Successfully Added\n\n");
-
     }
-
-
 }
 
 

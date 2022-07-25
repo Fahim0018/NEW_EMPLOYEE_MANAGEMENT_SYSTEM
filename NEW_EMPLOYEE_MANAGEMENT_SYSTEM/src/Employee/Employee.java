@@ -1,5 +1,7 @@
 package Employee;
 
+import Utils.Leaves;
+
 public class Employee {
     public String employeeName;
     public int employeeID;
@@ -10,16 +12,17 @@ public class Employee {
     public String employeeDepartment;
     public String employeeRole;
     public String employeeTeamName;
-//    public String employeeDirectReportingPersonName;
-//    public int employeeDirectReportingPersonsID;
+    public String employeeDirectReportingPersonName;
+    public int employeeDirectReportingPersonsID;
     public String employeeMaritalStatus;
     public String employeeJoiningDate;
 
-    public int employeeCasualLeave=0;
-    public int employeeAnnualLeave=0;
-    public int employeeMedicalLeave=0;
-    public int employeeMaternityLeave=0;
-    public int employeePaternityLeave=0;
+    public int employeeCasualLeave= Leaves.cLeave;
+    public int employeeAnnualLeave=Leaves.aLeave;
+    public int employeeMedicalLeave=Leaves.mLeave;
+    public int employeeMaternityLeave=Leaves.matLeave;
+    public int employeePaternityLeave=Leaves.patLeave;
+    public int employeeTotalLeaves;
 
     public String getEmployeeName() {
         return employeeName;
@@ -165,4 +168,27 @@ public class Employee {
     }
     public static void AddEmployee(){}
 
+    public String getEmployeeDirectReportingPersonName() {
+        return employeeDirectReportingPersonName;
+    }
+
+    public void setEmployeeDirectReportingPersonName(String employeeDirectReportingPersonName) {
+        this.employeeDirectReportingPersonName = employeeDirectReportingPersonName;
+    }
+
+    public int getEmployeeDirectReportingPersonsID() {
+        return employeeDirectReportingPersonsID;
+    }
+
+    public void setEmployeeDirectReportingPersonsID(int employeeDirectReportingPersonsID) {
+        this.employeeDirectReportingPersonsID = employeeDirectReportingPersonsID;
+    }
+
+    public int getEmployeeTotalLeaves() {
+        return employeeTotalLeaves;
+    }
+
+    public void setEmployeeTotalLeaves(int employeeTotalLeaves) {
+        this.employeeTotalLeaves = employeeTotalLeaves;
+    }
 }

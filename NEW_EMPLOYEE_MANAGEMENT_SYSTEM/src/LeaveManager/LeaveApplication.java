@@ -9,19 +9,19 @@ import java.time.Month;
 
 public class LeaveApplication {
 
-    public int empKey;
+    public  int empKey;
     public  String leaveType;
     public int leaveDays;
-    public static String startDate;
-    public static int startDay;
-    public static int startMonth;
-    public static int startYear;
+    public  String startDate;
+    public  int startDay;
+    public  int startMonth;
+    public  int startYear;
+    public int receiverID;
 
-
-    public static String endDate;
-    public static int endDay;
-    public static int endMonth;
-    public static int endYear;
+    public  String endDate;
+    public int endDay;
+    public  int endMonth;
+    public int endYear;
     public String reason;
     public LeaveApplication(){
         //ID
@@ -35,7 +35,8 @@ public class LeaveApplication {
                 System.out.println("---Id not Exist---");
             }
         }
-
+        System.out.println("Enter Receiver Id:");
+        receiverID = Input.sc.nextInt();
 
         //Leave Type
         Leaves leave= new Leaves();
@@ -59,8 +60,8 @@ public class LeaveApplication {
                 System.out.print("Enter Starting Date(yyyy-MM-dd): ");
                 startDate = Input.sc.next();
                 if (!Utility.isDatePast(startDate, "yyyy-MM-dd")) {
-                    startDay = Utility.getDay(startDate)/1;
-                    startMonth = Utility.getMonth(startDate)/1;
+                    startDay = Utility.getDay(startDate);
+                    startMonth = Utility.getMonth(startDate);
                     startYear = Utility.getYear(startDate);
                     break;
                 } else {
@@ -77,8 +78,8 @@ public class LeaveApplication {
                 System.out.print("Enter Ending Date(yyyy-MM-dd): ");
                 endDate = Input.sc.next();
                 if (!Utility.isDatePast(endDate, "yyyy-MM-dd")) {
-                    endDay = Utility.getDay(endDate)/1;
-                    endMonth =Utility.getMonth(endDate)/1;
+                    endDay = Utility.getDay(endDate);
+                    endMonth = Utility.getMonth(endDate);
                     endYear = Utility.getYear(endDate);
                     break;
                 } else {
@@ -96,5 +97,7 @@ public class LeaveApplication {
 
         System.out.print("Enter Reason For Leave: ");
         reason=Input.sc.next();
+
+        System.out.println("---Successfully Applied---");
     }
 }
