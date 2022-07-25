@@ -12,16 +12,16 @@ public class LeaveApplication {
     public int empKey;
     public  String leaveType;
     public int leaveDays;
-    public String startDate;
-    public int startDay;
-    public Month startMonth;
-    public int startYear;
+    public static String startDate;
+    public static int startDay;
+    public static int startMonth;
+    public static int startYear;
 
 
-    public String endDate;
-    public int endDay;
-    public Month endMonth;
-    public int endYear;
+    public static String endDate;
+    public static int endDay;
+    public static int endMonth;
+    public static int endYear;
     public String reason;
     public LeaveApplication(){
         //ID
@@ -54,38 +54,45 @@ public class LeaveApplication {
         }
 
 
-
-        while(true) {
-            System.out.print("Enter Starting Date(yyyy-mm-dd): ");
-            startDate = Input.sc.next();
-            if (!Utility.isDatePast(startDate, "yyyy-MM-dd")) {
-                startDay = Utility.getDay(startDate);
-                startMonth = Utility.getMonth(startDate);
-                startYear = Utility.getYear(startDate);
-                break;
+        try {
+            while (true) {
+                System.out.print("Enter Starting Date(yyyy-MM-dd): ");
+                startDate = Input.sc.next();
+                if (!Utility.isDatePast(startDate, "yyyy-MM-dd")) {
+                    startDay = Utility.getDay(startDate)/1;
+                    startMonth = Utility.getMonth(startDate)/1;
+                    startYear = Utility.getYear(startDate);
+                    break;
+                } else {
+                    System.out.println("Given Date is Already Passed!!!\n Enter Valid date!!!");
+                }
             }
-            else {
-                System.out.println("Given Date is Already Passed!!!\n Enter Valid date!!!");
-            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
 
-
-        while(true) {
-            System.out.print("Enter Ending Date(yyyy-mm-dd): ");
-            endDate = Input.sc.next();
-            if (!Utility.isDatePast(endDate, "yyyy-MM-dd")) {
-                endDay = Utility.getDay(startDate);
-                endMonth  = Utility.getMonth(startDate);
-                endYear = Utility.getYear(startDate);
-                break;
+        try {
+            while (true) {
+                System.out.print("Enter Ending Date(yyyy-MM-dd): ");
+                endDate = Input.sc.next();
+                if (!Utility.isDatePast(endDate, "yyyy-MM-dd")) {
+                    endDay = Utility.getDay(endDate)/1;
+                    endMonth =Utility.getMonth(endDate)/1;
+                    endYear = Utility.getYear(endDate);
+                    break;
+                } else {
+                    System.out.println("Given Date is Already Passed!!!\n Enter Valid date!!!");
+                }
             }
-            else {
-                System.out.println("Given Date is Already Passed!!!\n Enter Valid date!!!");
-            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
+
         CustomHolidays ch = new CustomHolidays();
         leaveDays = ch.numberOfWorkdaysBetween(LocalDate.of(startYear,startMonth,startDay),LocalDate.of(endYear,endMonth,endDay));
+        System.out.println("Total Leave Days(Excluding Holidays): "+leaveDays);
 
         System.out.print("Enter Reason For Leave: ");
         reason=Input.sc.next();

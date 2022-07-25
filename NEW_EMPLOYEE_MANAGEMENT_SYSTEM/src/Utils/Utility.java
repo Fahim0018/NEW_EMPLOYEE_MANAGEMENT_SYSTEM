@@ -78,10 +78,10 @@ public class Utility {
 
     }
 
-    public static Month getMonth(String date){
+    public static int getMonth(String date){
         LocalDate currentDate
                 = LocalDate.parse(date);
-       Month month = currentDate.getMonth();
+       int month = currentDate.getMonthValue();
        return month;
     }
 

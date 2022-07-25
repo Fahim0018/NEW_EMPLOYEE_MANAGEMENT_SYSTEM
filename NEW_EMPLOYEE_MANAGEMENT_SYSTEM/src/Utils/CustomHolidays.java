@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CustomHolidays {
-    private final Set<MonthDay> holidays = new HashSet<>();
+    public final Set<MonthDay> holidays = new HashSet<>();
     public CustomHolidays(){
         addHoliday(MonthDay.of(Month.JANUARY,26));
         addHoliday(MonthDay.of(Month.APRIL,14));
@@ -53,12 +53,12 @@ public class CustomHolidays {
         return MonthDay.of(localDate.getMonth(), localDate.getDayOfMonth());
     }
 
-    public static void main(String[] args) {
-        final CustomHolidays ch = new CustomHolidays();
-        ch.addHoliday(MonthDay.of(Month.MAY, 1));
-        ch.addHoliday(MonthDay.of(Month.MAY, 2));
-        ch.addHoliday(MonthDay.of(Month.MAY, 3));
-
-        System.out.println(ch.numberOfWorkdaysBetween(LocalDate.of(2018, 5, 1), LocalDate.of(2018, 5, 8)));
-    }
+//    public static void main(String[] args) {
+//        final CustomHolidays ch = new CustomHolidays();
+//        ch.addHoliday(MonthDay.of(Month.MAY, 1));
+//        ch.addHoliday(MonthDay.of(Month.MAY, 2));
+//        ch.addHoliday(MonthDay.of(Month.MAY, 3));
+//
+//        System.out.println(ch.numberOfWorkdaysBetween(LocalDate.of(2018, 5, 1), LocalDate.of(2018, 5, 8)));
+//    }
 }
