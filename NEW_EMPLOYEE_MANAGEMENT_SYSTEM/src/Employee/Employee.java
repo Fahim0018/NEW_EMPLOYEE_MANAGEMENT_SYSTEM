@@ -17,6 +17,8 @@ public class Employee {
     public String employeeMaritalStatus;
     public String employeeJoiningDate;
 
+
+
     public int employeeCasualLeave= Leaves.cLeave;
     public int employeeAnnualLeave=Leaves.aLeave;
     public int employeeMedicalLeave=Leaves.mLeave;
@@ -95,21 +97,6 @@ public class Employee {
     public void setEmployeeJoiningDate(String employeeJoiningDate) {
         this.employeeJoiningDate = employeeJoiningDate;
     }
-    //    public String getEmployeeDirectReportingPerson() {
-//        return employeeDirectReportingPersonName;
-//    }
-//
-//    public void setEmployeeDirectReportingPerson(String employeeDirectReportingPerson) {
-//        this.employeeDirectReportingPersonName = employeeDirectReportingPerson;
-//    }
-//
-//    public int getEmployeeDirectReportingPersonsID() {
-//        return employeeDirectReportingPersonsID;
-//    }
-//
-//    public void setEmployeeDirectReportingPersonsID(int employeeDirectReportingPersonsID) {
-//        this.employeeDirectReportingPersonsID = employeeDirectReportingPersonsID;
-
 
     public String getEmployeeMaritalStatus() {
         return employeeMaritalStatus;
@@ -191,4 +178,6 @@ public class Employee {
     public void setEmployeeTotalLeaves(int employeeTotalLeaves) {
         this.employeeTotalLeaves = employeeTotalLeaves;
     }
+
+
 }

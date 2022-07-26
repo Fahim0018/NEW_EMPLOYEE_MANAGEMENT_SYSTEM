@@ -20,10 +20,10 @@ public class Main {
 //        team.addDepartment(Input.sc.next());
         team.addTeamsToDepartment();
         AddEmployee addEmployee = new AddEmployee();
-//        System.out.println("enter employee Id");
-//        int empId = Input.sc.nextInt();
-//        ShowEmployeeDetails showEmp = new ShowEmployeeDetails(empId);
-        LeaveApplication leaveApplication=new LeaveApplication();
+        System.out.println("enter employee Id");
+        int empId = Input.sc.nextInt();
+        ShowEmployeeDetails showEmp = new ShowEmployeeDetails(empId);
+//        LeaveApplication leaveApplication=new LeaveApplication();
 
     }
 }

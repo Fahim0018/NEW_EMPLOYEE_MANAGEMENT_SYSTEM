@@ -27,6 +27,7 @@ public class Teams {
                    teamList.add(Input.sc.next());
 
                }
+               teamList.add("None");
                departmentTeam.put(dept,teamList);
 
            }

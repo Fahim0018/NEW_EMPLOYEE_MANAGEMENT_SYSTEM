@@ -20,6 +20,7 @@ public class AddEmployee extends Employee{
             int currID = Input.sc.nextInt();
             if(!EmployeeTable.employeeID.contains(currID)) {
                 empL.setEmployeeID(currID);
+                EmployeeTable.employeeID.add(currID);
                 break;
             }
             else {
@@ -129,8 +130,12 @@ public class AddEmployee extends Employee{
         //direct reporting person
         System.out.print("Direct Reporting Person: ");
         empL.setEmployeeDirectReportingPersonName(Input.sc.next());
-        System.out.println("Direct Reporting Person's ID: ");
+
+
+        System.out.print("Direct Reporting Person's ID: ");
         empL.setEmployeeDirectReportingPersonsID(Input.sc.nextInt());
+
+
 
 
         //Marital Status
@@ -173,7 +178,7 @@ public class AddEmployee extends Employee{
 
         //Adding to Details to Hashmap
         EmployeeTable.employeeTable.put(empL.getEmployeeID(),empL);
-        EmployeeTable.employeeID.add(empL.employeeID);
+
 
         //Acknowledgement
         System.out.println("Employee Successfully Added\n\n");

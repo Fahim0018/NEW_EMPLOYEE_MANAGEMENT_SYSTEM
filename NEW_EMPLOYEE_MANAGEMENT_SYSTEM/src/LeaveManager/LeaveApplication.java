@@ -17,12 +17,28 @@ public class LeaveApplication {
     public  int startMonth;
     public  int startYear;
     public int receiverID;
-
     public  String endDate;
     public int endDay;
     public  int endMonth;
     public int endYear;
     public String reason;
+    public String employeeLeaveStatus;
+    public String employeeLeaveRejectionReason;
+    public String getEmployeeLeaveStatus() {
+        return employeeLeaveStatus;
+    }
+
+    public void setEmployeeLeaveStatus(String employeeLeaveStatus) {
+        this.employeeLeaveStatus = employeeLeaveStatus;
+    }
+
+    public String getEmployeeLeaveRejectionReason() {
+        return employeeLeaveRejectionReason;
+    }
+
+    public void setEmployeeLeaveRejectionReason(String employeeLeaveRejectionReason) {
+        this.employeeLeaveRejectionReason = employeeLeaveRejectionReason;
+    }
     public LeaveApplication(){
         //ID
         while(true) {
