@@ -28,7 +28,6 @@ public class HR {
             int n = Input.sc.nextInt();
             for (int i = 0; i < n; i++) {
                 System.out.println("Enter Team "+i+" Name:");
-                Input.sc.nextLine();
                 teamList.add(Input.sc.nextLine());
             }
             teamList.add("None");
@@ -42,8 +41,8 @@ public class HR {
         System.out.println("enter the no. of teams to be added:");
         int n = Input.sc.nextInt();
         for (int i = 0; i < n; i++) {
-            System.out.println("Enter Team Name:");
             Input.sc.nextLine();
+            System.out.println("Enter Team Name:");
             teamList.add(Input.sc.nextLine());
 
         }

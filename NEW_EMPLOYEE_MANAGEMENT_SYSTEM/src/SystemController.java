@@ -44,14 +44,17 @@ public class SystemController {
                       switch (userOption){
                           case 1:{
                               new LeaveResponse(CEO.ceoID);
+                              System.out.println("\n");
                               break;
                           }
                           case 2:{
                               new ShowEmployeeDetails().ShowAllEmployeeDetails();
+                              System.out.println("\n");
                               break;
                           }
                           case 3:{
                               Login=0;
+                              System.out.println("\n");
                               break;
                           }
                           default:{
@@ -67,6 +70,7 @@ public class SystemController {
               }
               default: {
                   System.out.println("---Enter Valid Option---");
+                  System.out.println("\n");
               }
           }
       }
@@ -114,6 +118,7 @@ public class SystemController {
                               case 1:{
                                   hr.AddEmployee();
                                   System.out.println("\n---Employee Added SuccessFully---\n");
+                                  System.out.println("\n");
                                   break;
                               }
                               case 2:{
@@ -144,11 +149,13 @@ public class SystemController {
                                       System.out.println("\n");
                                       hr.addNewDepartment(dep);
                                   }
+                                  System.out.println("\n");
                                   break;
                               }
 
                               case 5:{
                                   Login=0;
+                                  System.out.println("\n");
                                   break;
 
 
@@ -217,24 +224,29 @@ public class SystemController {
                                   switch (userOption) {
                                       case 1: {
                                           new LeaveRequest(empID);
+                                          System.out.println("\n");
                                           break;
 
                                       }
                                       case 2: {
                                           new RemoveLeaveRequest().removeRequest(empID);
+                                          System.out.println("\n");
                                           break;
                                       }
                                       case 3: {
                                           new ShowEmployeeDetails().ShowEmployeeDetails(empID);
+                                          System.out.println("\n");
                                           break;
 
                                       }
                                       case 4: {
                                           new ShowLeaveDetails(empID);
+                                          System.out.println("\n");
                                           break;
                                       }
                                       case 5: {
                                           new ShowLeaveStatus(empID);
+                                          System.out.println("\n");
                                           break;
                                       }
                                       case 6: {
@@ -261,42 +273,50 @@ public class SystemController {
                                   switch (userOption) {
                                       case 1: {
                                           new LeaveRequest(empID);
+                                          System.out.println("\n");
                                           break;
 
                                       }
                                       case 2: {
 
                                           new RemoveLeaveRequest().removeRequest(empID);
+                                          System.out.println("\n");
                                           break;
                                       }
                                       case 3: {
                                           new ShowEmployeeDetails().ShowEmployeeDetails(empID);
+                                          System.out.println("\n");
                                           break;
 
 
                                       }
                                       case 4: {
                                              new ShowLeaveDetails(empID);
+                                             System.out.println("\n");
                                              break;
                                       }
                                       case 5: {
                                           new ShowLeaveStatus(empID);
+                                          System.out.println("\n");
                                           break;
 
                                       }
                                       case 6:{
 //
                                           new LeaveResponse(empID);
+                                          System.out.println("\n");
                                           break;
 //
 
                                       }
                                       case 7:{
                                           new HR().showEmployeeUnder(empID);
+                                          System.out.println("\n");
                                           break;
                                       }
                                       case 8: {
                                           Login = 0;
+                                          System.out.println("\n");
                                           break;
                                       }
                                       default: {

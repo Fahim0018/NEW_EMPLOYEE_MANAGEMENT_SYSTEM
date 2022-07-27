@@ -12,7 +12,7 @@ public class LeaveResponse {
     public LeaveResponse(int directReportingPersonsID){
         for(Map.Entry<Integer, ArrayList> entry:LeaveRequest.leaveRequests.entrySet()){
             ArrayList reqList =entry.getValue();
-            if(reqList.size()>0) {
+            if(reqList!=null) {
                 for (int i = 0; i < reqList.size(); i++) {
                     LeaveApplication l = (LeaveApplication) reqList.get(i);
                     if (l.receiverID == directReportingPersonsID && l.getEmployeeLeaveStatus().equals("Pending")) {
@@ -134,6 +134,11 @@ public class LeaveResponse {
                         System.out.println("\n");
                     }
                 }
+            }
+            else {
+                System.out.println("\n");
+                System.out.println("---No request found!!!---");
+                System.out.println("\n");
             }
         }
 
