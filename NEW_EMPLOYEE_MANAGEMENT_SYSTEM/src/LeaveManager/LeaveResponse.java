@@ -29,7 +29,7 @@ public class LeaveResponse {
                                 Employee emp = entry1.getValue();
 
                                 if (emp.getEmployeeGender().equals("Male")) {
-                                    System.out.println("--Remaining Leaves--" + "\n" + "Casual Leaves: " + emp.getEmployeeCasualLeave() + "/" + Leaves.cLeave + "\n" + "Annual Leaves: " + emp.getEmployeeAnnualLeave() + "/" + Leaves.aLeave + "\n" + "Medical Leaves: " + emp.getEmployeeMedicalLeave() + "/" + Leaves.mLeave + "\n" + "Paternity Leaves: " + emp.getEmployeePaternityLeave() + "/" + Leaves.patLeave + "\n");
+                                    System.out.println("--Remaining Leaves--" + "\n" + "Casual Leaves: " + emp.getEmployeeCasualLeave() + "/" + emp.cLeave + "\n" + "Annual Leaves: " + emp.getEmployeeAnnualLeave() + "/" + emp.aLeave + "\n" + "Medical Leaves: " + emp.getEmployeeMedicalLeave() + "/" + emp.mLeave + "\n" + "Paternity Leaves: " + emp.getEmployeePaternityLeave() + "/" + emp.patLeave + "\n");
 
                                     System.out.print("Enter Y to Approve request And N to Reject Request: ");
                                     String userInput = Input.sc.next();
@@ -58,7 +58,7 @@ public class LeaveResponse {
 
                                     }
                                 } else if (emp.getEmployeeGender().equals("Female")) {
-                                    System.out.println("--Remaining Leaves--" + "\n" + "Casual Leaves: " + emp.getEmployeeCasualLeave() + "/" + Leaves.cLeave + "\n" + "Annual Leaves: " + emp.getEmployeeAnnualLeave() + "/" + Leaves.aLeave + "\n" + "Medical Leaves: " + emp.getEmployeeMedicalLeave() + "/" + Leaves.mLeave + "\n" + "Maternity Leaves: " + emp.getEmployeeMaternityLeave() + "/" + Leaves.matLeave + "\n");
+                                    System.out.println("--Remaining Leaves--" + "\n" + "Casual Leaves: " + emp.getEmployeeCasualLeave() + "/" + emp.cLeave + "\n" + "Annual Leaves: " + emp.getEmployeeAnnualLeave() + "/" + emp.aLeave + "\n" + "Medical Leaves: " + emp.getEmployeeMedicalLeave() + "/" + emp.mLeave + "\n" + "Maternity Leaves: " + emp.getEmployeeMaternityLeave() + "/" + emp.matLeave + "\n");
                                     System.out.print("Enter Y to Approve request And N to Reject Request: ");
                                     String userInput = Input.sc.next();
                                     if (userInput.equals("Y")) {
@@ -86,7 +86,7 @@ public class LeaveResponse {
                                     }
 
                                 } else {
-                                    System.out.println("--Remaining Leaves--" + "\n" + "Casual Leaves: " + emp.getEmployeeCasualLeave() + "/" + Leaves.cLeave + "\n" + "Annual Leaves: " + emp.getEmployeeAnnualLeave() + "/" + Leaves.aLeave + "\n" + "Medical Leaves: " + emp.getEmployeeMedicalLeave() + "/" + Leaves.mLeave + "\n" + "Maternity Leaves: " + emp.getEmployeeMaternityLeave() + "/" + Leaves.matLeave + "\n" + "Paternity Leaves: " + emp.getEmployeePaternityLeave() + "/" + Leaves.patLeave + "\n");
+                                    System.out.println("--Remaining Leaves--" + "\n" + "Casual Leaves: " + emp.getEmployeeCasualLeave() + "/" + emp.cLeave + "\n" + "Annual Leaves: " + emp.getEmployeeAnnualLeave() + "/" + emp.aLeave + "\n" + "Medical Leaves: " + emp.getEmployeeMedicalLeave() + "/" + emp.mLeave + "\n" + "Maternity Leaves: " + emp.getEmployeeMaternityLeave() + "/" + emp.matLeave + "\n" + "Paternity Leaves: " + emp.getEmployeePaternityLeave() + "/" + emp.patLeave + "\n");
 
                                     System.out.print("Enter Y to Approve request And N to Reject Request: ");
                                     String userInput = Input.sc.next();
@@ -124,6 +124,11 @@ public class LeaveResponse {
                             }
                         }
 
+                    }
+                    else {
+                        System.out.println("\n");
+                        System.out.println("---No request found!!!---");
+                        System.out.println("\n");
                     }
                 }
             }

@@ -26,6 +26,14 @@ public class Employee {
     public int employeePaternityLeave;
     public int employeeTotalLeaves;
 
+    public  int cLeave ;
+    public int aLeave ;
+    public  int mLeave ;
+    public static final int matLeave=180;
+    public static final int patLeave=24;
+
+
+
     public String getEmployeeName() {
         return employeeName;
     }
@@ -169,6 +177,30 @@ public class Employee {
 
     public void setEmployeeDirectReportingPersonsID(int employeeDirectReportingPersonsID) {
         this.employeeDirectReportingPersonsID = employeeDirectReportingPersonsID;
+    }
+
+    public int getcLeave() {
+        return cLeave;
+    }
+
+    public void setcLeave(int cLeave) {
+        this.cLeave = cLeave;
+    }
+
+    public int getaLeave() {
+        return aLeave;
+    }
+
+    public void setaLeave(int aLeave) {
+        this.aLeave = aLeave;
+    }
+
+    public int getmLeave() {
+        return mLeave;
+    }
+
+    public void setmLeave(int mLeave) {
+        this.mLeave = mLeave;
     }
 
     public int getEmployeeTotalLeaves() {

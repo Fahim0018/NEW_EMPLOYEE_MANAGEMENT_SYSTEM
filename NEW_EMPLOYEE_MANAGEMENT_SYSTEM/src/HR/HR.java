@@ -127,26 +127,38 @@ public class HR {
         }
 
         int N = Input.sc.nextInt();
-        if (N == N) {
-            empL.setEmployeeDepartment(HR.department.get(N - 1));
+        while(true) {
+            if (N<HR.department.size()+1) {
+                empL.setEmployeeDepartment(HR.department.get(N - 1));
 
-            System.out.println("-*-*-Select Team Name-*-*-");
-            for (Map.Entry<String, ArrayList> entry : HR.departmentTeam.entrySet()) {
-                if (entry.getKey().equals(HR.department.get(N - 1))) {
-                    ArrayList team = entry.getValue();
-                    int j=0;
-                    while (team.size()>j) {
-                        System.out.println(j + 1 + "." + team.get(j));
-                        j++;
-                    }
-                    int M = Input.sc.nextInt();
-                    if(M==M){
-                        empL.setEmployeeTeamName((String)team.get(M-1) );
-                        break;
+                System.out.println("-*-*-Select Team Name-*-*-");
+                for (Map.Entry<String, ArrayList> entry : HR.departmentTeam.entrySet()) {
+                    if (entry.getKey().equals(HR.department.get(N - 1))) {
+                        ArrayList team = entry.getValue();
+                        int j = 0;
+                        while (team.size() > j) {
+                            System.out.println(j + 1 + "." + team.get(j));
+                            j++;
+                        }
+                        int M = Input.sc.nextInt();
+                        while (true) {
+                            if (M<6) {
+                                empL.setEmployeeTeamName((String) team.get(M - 1));
+                                break;
+                            } else {
+                                System.out.println("\n---Enter valid option---\n");
+                            }
+                        }
                     }
                 }
+                break;
+            }
+            else {
+                System.out.println("\n---Enter valid option---\n");
+
             }
         }
+
 
         //Role
         System.out.println("-*-*-Select Role-*-*-");

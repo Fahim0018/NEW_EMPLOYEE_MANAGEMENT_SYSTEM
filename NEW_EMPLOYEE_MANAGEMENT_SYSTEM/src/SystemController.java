@@ -208,7 +208,7 @@ public class SystemController {
                                           1.)Apply For Leave
                                           2.)Delete Leave Application
                                           3.)Show My Details
-                                          4.)Show Leave Details
+                                          4.)Show Remaining Leaves 
                                           5.)Show Applied Leave Status
                                           6.)Logout
                                           """);
@@ -235,7 +235,8 @@ public class SystemController {
                                           break;
                                       }
                                       case 5: {
-
+                                          new ShowLeaveStatus(empID);
+                                          break;
                                       }
                                       case 6: {
                                           Login = 0;
@@ -251,7 +252,7 @@ public class SystemController {
                                           1.)Apply For Leave
                                           2.)Delete Leave Application
                                           3.)Show My Details
-                                          4.)Show Leave Details
+                                          4.)Show Remaining Leave 
                                           5.)Show Applied Leave Status
                                           6.)Leave Requests
                                           7.)Show Employees Under Me
@@ -281,6 +282,7 @@ public class SystemController {
                                              break;
                                       }
                                       case 5: {
+                                          new ShowLeaveStatus(empID);
                                           break;
 
                                       }

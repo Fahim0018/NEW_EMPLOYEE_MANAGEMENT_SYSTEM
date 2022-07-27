@@ -56,7 +56,7 @@ public class LeaveApplication {
 
         //Leave Type
         System.out.println("-*-*-Select Leave Type-*-*-");
-        for (int i = 0; i < Leaves.leaves.size(); i++) {
+        for (int i = 0; i < 5; i++) {
             System.out.println(i + 1 + "." + Leaves.leaves.get(i));
         }
         while(true) {
