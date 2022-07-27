@@ -92,13 +92,13 @@ public class LeaveApplication {
             while (true) {
                 System.out.print("Enter Ending Date(yyyy-MM-dd): ");
                 endDate = Input.sc.next();
-                if (!Utility.isDatePast(endDate, "yyyy-MM-dd")) {
+                if (!Utility.isDatePast(endDate, "yyyy-MM-dd") && Utility.compareDates(startDate,endDate)) {
                     endDay = Utility.getDay(endDate);
                     endMonth = Utility.getMonth(endDate);
                     endYear = Utility.getYear(endDate);
                     break;
                 } else {
-                    System.out.println("Given Date is Already Passed!!!\n Enter Valid date!!!");
+                    System.out.println("Given Date is Already Passed or It's Before Starting Date!!!\n Enter Valid date!!!");
                 }
             }
         }catch (Exception e){
@@ -111,7 +111,8 @@ public class LeaveApplication {
         System.out.println("Total Leave Days(Excluding Holidays): "+leaveDays);
 
         System.out.print("Enter Reason For Leave: ");
-        reason=Input.sc.next();
+        Input.sc.nextLine();
+        reason=Input.sc.nextLine();
 
         System.out.println("---Successfully Applied---");
     }

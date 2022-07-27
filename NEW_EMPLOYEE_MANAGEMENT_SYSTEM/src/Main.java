@@ -1,4 +1,5 @@
 
+import CEO.CEO;
 import Employee.*;
 import HR.HR;
 import LeaveManager.LeaveApplication;
@@ -16,6 +17,7 @@ public class Main {
     public static int userInput;
 
     public static void main(String[] args) {
+        new CEO();
         while(firstExitCode==1) {
             System.out.println("""
                     1.) CEO

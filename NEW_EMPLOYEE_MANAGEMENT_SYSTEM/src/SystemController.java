@@ -35,6 +35,7 @@ public class SystemController {
                       System.out.println("Enter Valid Username or Password!!");
                   }
                   while(Login==1){
+                      System.out.println("\n");
                       System.out.println("""
                               1.)Managing Leave Requests
                               2.)Show All Employee
@@ -85,10 +86,12 @@ public class SystemController {
           switch (Input.sc.nextInt()){
               case 1:{
                       int Login=0;
+
                       System.out.println("Enter UserName: ");
-                      String userName = Input.sc.next();
+                      Input.sc.nextLine();
+                      String userName = Input.sc.nextLine();
                       System.out.println("Enter Password: ");
-                      String userPass = Input.sc.next();
+                      String userPass = Input.sc.nextLine();
                       if(userName.equals(HR.hrName) && userPass.equals(HR.hrPass)) {
                           System.out.println("\n---You are Logged In!!!!---\n");
                           Login = 1;
@@ -135,13 +138,11 @@ public class SystemController {
                                   System.out.println("Enter The  Number of Departments to be Added ");
                                   int n = Input.sc.nextInt();
                                   for(int i=0;i<n;i++) {
+                                      Input.sc.nextLine();
                                       System.out.println("Enter Department Name: ");
-                                      String dep = Input.sc.next();
+                                      String dep = Input.sc.nextLine();
                                       System.out.println("\n");
                                       hr.addNewDepartment(dep);
-                                      System.out.println("\n");
-                                      System.out.println("---New Department and Teams Added SuccessFully---");
-                                      System.out.println("\n");
                                   }
                                   break;
                               }
@@ -220,9 +221,7 @@ public class SystemController {
 
                                       }
                                       case 2: {
-                                          System.out.println("Enter Leave Request Number: ");
-                                          int reqNO = Input.sc.nextInt();
-                                          new RemoveLeaveRequest().removeRequest(empID, reqNO);
+                                          new RemoveLeaveRequest().removeRequest(empID);
                                           break;
                                       }
                                       case 3: {
@@ -266,9 +265,8 @@ public class SystemController {
 
                                       }
                                       case 2: {
-                                          System.out.println("Enter Leave Request Number: ");
-                                          int reqNO = Input.sc.nextInt();
-                                          new RemoveLeaveRequest().removeRequest(empID, reqNO);
+
+                                          new RemoveLeaveRequest().removeRequest(empID);
                                           break;
                                       }
                                       case 3: {

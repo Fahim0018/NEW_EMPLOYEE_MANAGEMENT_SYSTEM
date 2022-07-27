@@ -92,4 +92,27 @@ public class Utility {
         return year;
 
     }
+
+
+    public static boolean compareDates(String d1,String d2) throws ParseException {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date date1 = sdf.parse(d1);
+            Date date2 = sdf.parse(d2);
+
+            System.out.println("Date1"+sdf.format(date1));
+            System.out.println("Date2"+sdf.format(date2));System.out.println();
+            if(date1.before(date2)){
+                return true;
+            }
+            else {
+                return false;
+            }
+
+
+
+    }
+
+
+
+
 }

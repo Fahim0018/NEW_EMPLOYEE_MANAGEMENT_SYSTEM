@@ -15,7 +15,7 @@ public class LeaveResponse {
             if(reqList.size()>0) {
                 for (int i = 0; i < reqList.size(); i++) {
                     LeaveApplication l = (LeaveApplication) reqList.get(i);
-                    if (l.receiverID == directReportingPersonsID) {
+                    if (l.receiverID == directReportingPersonsID && l.getEmployeeLeaveStatus().equals("Pending")) {
                         System.out.println("Employee Id : " + l.empKey);
                         System.out.println("Receiver ID : " + l.receiverID);
                         System.out.println("Requested Leave Type: " + l.leaveType);
@@ -48,13 +48,14 @@ public class LeaveResponse {
                                             int leave = emp.getEmployeePaternityLeave() - l.leaveDays;
                                             emp.setEmployeePaternityLeave(leave);
                                         }
-                                        System.out.println("Request Accepted Successfully");
+                                        System.out.println("\n---Request Accepted Successfully---\n");
                                         l.setEmployeeLeaveStatus("Accepted");
                                     } else {
                                         l.setEmployeeLeaveStatus("Rejected");
                                         System.out.print("Rejection Reason: ");
-                                        l.setEmployeeLeaveRejectionReason(Input.sc.next());
-                                        System.out.println("Request Rejected Successfully!!! ");
+                                        Input.sc.nextLine();
+                                        l.employeeLeaveRejectionReason=Input.sc.nextLine();
+                                        System.out.println("\n---Request Rejected Successfully---\n");
 
                                     }
                                 } else if (emp.getEmployeeGender().equals("Female")) {
@@ -80,7 +81,8 @@ public class LeaveResponse {
                                     } else {
                                         l.setEmployeeLeaveStatus("Rejected");
                                         System.out.print("Rejection Reason: ");
-                                        l.setEmployeeLeaveRejectionReason(Input.sc.next());
+                                        Input.sc.nextLine();
+                                        l.employeeLeaveRejectionReason=Input.sc.nextLine();
                                         System.out.println("Request Rejected Successfully!!! ");
 
                                     }
@@ -113,7 +115,8 @@ public class LeaveResponse {
                                     } else {
                                         l.setEmployeeLeaveStatus("Rejected");
                                         System.out.print("Rejection Reason: ");
-                                        l.setEmployeeLeaveRejectionReason(Input.sc.next());
+                                        Input.sc.nextLine();
+                                        l.employeeLeaveRejectionReason=Input.sc.nextLine();
                                         System.out.println("Request Rejected Successfully!!! ");
 
                                     }
@@ -132,13 +135,6 @@ public class LeaveResponse {
                     }
                 }
             }
-            else {
-                System.out.println("\n");
-                System.out.println("---No request found!!!---");
-                System.out.println("\n");
-            }
-
-
         }
 
     }

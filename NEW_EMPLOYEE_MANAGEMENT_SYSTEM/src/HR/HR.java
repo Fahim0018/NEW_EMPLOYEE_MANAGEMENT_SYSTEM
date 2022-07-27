@@ -28,7 +28,8 @@ public class HR {
             int n = Input.sc.nextInt();
             for (int i = 0; i < n; i++) {
                 System.out.println("Enter Team "+i+" Name:");
-                teamList.add(Input.sc.next());
+                Input.sc.nextLine();
+                teamList.add(Input.sc.nextLine());
             }
             teamList.add("None");
             departmentTeam.put(dept,teamList);
@@ -42,31 +43,38 @@ public class HR {
         int n = Input.sc.nextInt();
         for (int i = 0; i < n; i++) {
             System.out.println("Enter Team Name:");
-            teamList.add(Input.sc.next());
+            Input.sc.nextLine();
+            teamList.add(Input.sc.nextLine());
 
         }
         teamList.add("None");
         departmentTeam.put(newDep,teamList);
+        System.out.println("\n");
+        System.out.println("---New Department and Teams Added SuccessFully---");
+        System.out.println("\n");
 
     }
     public void AddEmployee(){
+        int testID;
         Employee empL = new Employee();
         //name
         System.out.print("Name of Employee: ");
-        empL.setEmployeeName(Input.sc.next());
+        Input.sc.nextLine();
+        empL.setEmployeeName(Input.sc.nextLine());
 
         //ID
         while(true) {
 
             System.out.print("Employee ID number: ");
             int currID = Input.sc.nextInt();
+            testID=currID;
             if(!EmployeeTable.employeeID.contains(currID)) {
                 empL.setEmployeeID(currID);
                 EmployeeTable.employeeID.add(currID);
                 break;
             }
             else {
-                System.out.println("ID Already Exist!!! \n Enter valid Id\n");
+                System.out.println("ID Already Exist!!! \t Enter valid Id\n");
             }
 
         }
@@ -74,7 +82,8 @@ public class HR {
         //Email Id
         while(true) {
             System.out.print("Employee Mail id: ");
-            String userEmail = Input.sc.next();
+            Input.sc.nextLine();
+            String userEmail = Input.sc.nextLine();
             if (Utility.CheckMail(userEmail)) {
                 empL.setEmployeeEmailID(userEmail);
                 break;
@@ -120,7 +129,7 @@ public class HR {
         }
 
         //Department
-        System.out.println("-*-*-Select Department-*-*-");
+        System.out.println("\n-*-*-Select Department-*-*-");
 
         for(int i = 0;i<HR.department.size();i++ ){
             System.out.println(i+1+"."+ HR.department.get(i));
@@ -131,7 +140,7 @@ public class HR {
             if (N<HR.department.size()+1) {
                 empL.setEmployeeDepartment(HR.department.get(N - 1));
 
-                System.out.println("-*-*-Select Team Name-*-*-");
+                System.out.println("\n-*-*-Select Team Name-*-*-");
                 for (Map.Entry<String, ArrayList> entry : HR.departmentTeam.entrySet()) {
                     if (entry.getKey().equals(HR.department.get(N - 1))) {
                         ArrayList team = entry.getValue();
@@ -161,7 +170,7 @@ public class HR {
 
 
         //Role
-        System.out.println("-*-*-Select Role-*-*-");
+        System.out.println("\n-*-*-Select Role-*-*-");
         System.out.println("A.Department Head");
         System.out.println("B.Team Head");
         System.out.println("C.Team Member");
@@ -182,18 +191,31 @@ public class HR {
         }
 
         //direct reporting person
-        System.out.print("Direct Reporting Person: ");
-        empL.setEmployeeDirectReportingPersonName(Input.sc.next());
+        System.out.print("\nDirect Reporting Person: ");
+        Input.sc.nextLine();
+        empL.setEmployeeDirectReportingPersonName(Input.sc.nextLine());
 
 
-        System.out.print("Direct Reporting Person's ID: ");
-        empL.setEmployeeDirectReportingPersonsID(Input.sc.nextInt());
+
+        while(true) {
+            System.out.print("\nDirect Reporting Person's ID: ");
+            int currID =Input.sc.nextInt();
+            if (EmployeeTable.employeeID.contains(currID) && currID != testID) {
+                empL.setEmployeeDirectReportingPersonsID(currID);
+                break;
+            }
+            else {
+                System.out.println("\n---Enter Valid Id---\n");
+
+            }
+        }
+
 
 
 
 
         //Marital Status
-        System.out.println("Employee Marital Status");
+        System.out.println("\nEmployee Marital Status");
         System.out.println("A.Married");
         System.out.println("B.Single");
         System.out.println("C.Widowed");
@@ -219,7 +241,7 @@ public class HR {
 
         //joining date
 
-        System.out.print("Employee Joining Date (yyyy-MM-dd): ");
+        System.out.print("\nEmployee Joining Date (yyyy-MM-dd): ");
         String currDate = Input.sc.next();
         empL.setEmployeeJoiningDate(currDate);
 
@@ -252,7 +274,7 @@ public class HR {
 
     public void showEmployeeUnder(int empID) {
         Employee e =EmployeeTable.employeeTable.get(empID);
-        System.out.println("\nName: "+e.getEmployeeName()+"\t"+"Department: "+e.getEmployeeDepartment()+"\t"+"Role: "+e.getEmployeeRole()+"\n");
+        System.out.println("\nName: "+e.getEmployeeName()+"\t"+"Department: "+e.getEmployeeDepartment()+"\t\t"+"Role: "+e.getEmployeeRole()+"\n");
         Formatter fmt = new Formatter();
         System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
         fmt.format("%5s %15s %15s %15s %15s %15s %20s %15s %15s %25s %15s \n", "Name", "Employee ID", "E-Mail", "Gender", "Age", "Phone NO.", "Department", "Team Name", "Role", "Marital Status", "Joining Date");
