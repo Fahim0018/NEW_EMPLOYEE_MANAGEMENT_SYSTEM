@@ -55,9 +55,8 @@ public class LeaveApplication {
         receiverID = Input.sc.nextInt();
 
         //Leave Type
-        Leaves leave= new Leaves();
         System.out.println("-*-*-Select Leave Type-*-*-");
-        for (int i = 0; i < leave.leaves.size(); i++) {
+        for (int i = 0; i < Leaves.leaves.size(); i++) {
             System.out.println(i + 1 + "." + Leaves.leaves.get(i));
         }
         while(true) {

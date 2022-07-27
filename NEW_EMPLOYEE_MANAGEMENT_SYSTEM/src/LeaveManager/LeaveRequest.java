@@ -14,7 +14,6 @@ public class LeaveRequest {
     public LeaveRequest(int empID){
         LeaveApplication leave = new LeaveApplication();
 
-        Employee emp = EmployeeTable.employeeTable.get(empID);
         leave.setEmployeeLeaveStatus("Pending");
 
         int flag = 0;

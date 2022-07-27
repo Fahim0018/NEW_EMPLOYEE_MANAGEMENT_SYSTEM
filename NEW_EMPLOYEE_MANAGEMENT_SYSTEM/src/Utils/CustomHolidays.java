@@ -53,12 +53,4 @@ public class CustomHolidays {
         return MonthDay.of(localDate.getMonth(), localDate.getDayOfMonth());
     }
 
-//    public static void main(String[] args) {
-//        final CustomHolidays ch = new CustomHolidays();
-//        ch.addHoliday(MonthDay.of(Month.MAY, 1));
-//        ch.addHoliday(MonthDay.of(Month.MAY, 2));
-//        ch.addHoliday(MonthDay.of(Month.MAY, 3));
-//
-//        System.out.println(ch.numberOfWorkdaysBetween(LocalDate.of(2018, 5, 1), LocalDate.of(2018, 5, 8)));
-//    }
 }

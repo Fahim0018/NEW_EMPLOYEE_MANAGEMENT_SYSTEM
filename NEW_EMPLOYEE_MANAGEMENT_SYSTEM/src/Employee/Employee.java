@@ -19,11 +19,11 @@ public class Employee {
 
 
 
-    public int employeeCasualLeave= Leaves.cLeave;
-    public int employeeAnnualLeave=Leaves.aLeave;
-    public int employeeMedicalLeave=Leaves.mLeave;
-    public int employeeMaternityLeave=Leaves.matLeave;
-    public int employeePaternityLeave=Leaves.patLeave;
+    public int employeeCasualLeave;
+    public int employeeAnnualLeave;
+    public int employeeMedicalLeave;
+    public int employeeMaternityLeave;
+    public int employeePaternityLeave;
     public int employeeTotalLeaves;
 
     public String getEmployeeName() {
