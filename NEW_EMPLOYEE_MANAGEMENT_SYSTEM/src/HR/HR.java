@@ -65,7 +65,6 @@ public class HR {
             teamList.add(Input.sc.nextLine());
 
         }
-        teamList.add("None");
         departmentTeam.put(newDep,teamList);
         System.out.println("\n");
         System.out.println("---New Department and Teams Added SuccessFully---");
@@ -188,30 +187,38 @@ public class HR {
             while (true) {
                 if (N < HR.department.size() + 1) {
                     empL.setEmployeeDepartment(HR.department.get(N - 1));
+                    if(!currRole.equals("Department Head")) {
 
-                    System.out.println("\n-*-*-Select Team Name-*-*-");
-                    for (Map.Entry<String, ArrayList> entry : HR.departmentTeam.entrySet()) {
-                        if (entry.getKey().equals(HR.department.get(N - 1))) {
-                            ArrayList team = entry.getValue();
-                            int j = 0;
-                            while (team.size() > j) {
-                                System.out.println(j + 1 + "." + team.get(j));
-                                j++;
-                            }
-                            int M = Input.sc.nextInt();
-                            while (true) {
-                                if (M < 6) {
-                                    empL.setEmployeeTeamName((String) team.get(M - 1));
-                                    break;
-                                } else {
-                                    System.out.println("\n---Enter valid option---\n");
+                        System.out.println("\n-*-*-Select Team Name-*-*-");
+                        for (Map.Entry<String, ArrayList> entry : HR.departmentTeam.entrySet()) {
+                            if (entry.getKey().equals(HR.department.get(N - 1))) {
+                                ArrayList team = entry.getValue();
+                                int j = 0;
+                                while (team.size() > j) {
+                                    System.out.println(j + 1 + "." + team.get(j));
+                                    j++;
+                                }
+                                int M = Input.sc.nextInt();
+                                while (true) {
+                                    if (M < 6) {
+                                        empL.setEmployeeTeamName((String) team.get(M - 1));
+                                        break;
+                                    } else {
+                                        System.out.println("\n---Enter valid option---\n");
+                                    }
                                 }
                             }
                         }
+                        break;
+                    }
+                    else{
+                        empL.setEmployeeTeamName("None");
+
                     }
                     break;
                 } else {
                     System.out.println("\n---Enter valid option---\n");
+                    break;
 
                 }
             }
@@ -224,7 +231,7 @@ public class HR {
                 System.out.println(CEO.ceoName + ":" + "ID-" + CEO.ceoID+"  Role-CEO");
             }
             else{
-                if(currRole.equals("Departmen Head")) {
+                if(currRole.equals("Department Head")) {
                     System.out.println("\nAvailable reporting to Person");
                     System.out.println(CEO.ceoName + ":" + "ID-" + CEO.ceoID+"  Role-CEO");
                 }

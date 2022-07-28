@@ -16,7 +16,7 @@ public class ShowLeaveStatus {
             fm = new Formatter();
             for (int i = 0; i < l.size(); i++) {
                 LeaveApplication L = (LeaveApplication) l.get(i);
-                fm.format(" %14s %16s %16s %16s %16s %20s %16s \n", L.empKey, L.receiverID,L.receiverName, L.leaveType, L.leaveDays, L.reason, L.getEmployeeLeaveStatus(),L.employeeLeaveRejectionReason);
+                fm.format(" %14s %16s %16s %16s %16s %20s %16s \n", L.empKey, L.receiverID,L.receiverName, L.leaveType, L.leaveDays, L.reason, L.getEmployeeLeaveStatus(),L.getEmployeeLeaveRejectionReason());
             }
             System.out.println(fm);
         }

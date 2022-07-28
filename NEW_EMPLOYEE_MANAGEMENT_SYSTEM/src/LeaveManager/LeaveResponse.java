@@ -54,8 +54,9 @@ public class LeaveResponse {
                                         } else {
                                             l.setEmployeeLeaveStatus("Rejected");
                                             Input.sc.nextLine();
-                                            System.out.print("Rejection Reason: ");
-                                            l.employeeLeaveRejectionReason = Input.sc.nextLine();
+                                            System.out.println("Rejection Reason: ");
+                                            String rejReason= Input.sc.nextLine();
+                                            l.setEmployeeLeaveRejectionReason(rejReason);
                                             System.out.println("\n---Request Rejected Successfully---\n");
 
                                         }
@@ -82,8 +83,9 @@ public class LeaveResponse {
                                         } else {
                                             l.setEmployeeLeaveStatus("Rejected");
                                             Input.sc.nextLine();
-                                            System.out.print("Rejection Reason: ");
-                                            l.employeeLeaveRejectionReason = Input.sc.nextLine();
+                                            System.out.println("Rejection Reason: ");
+                                            String rejReason= Input.sc.nextLine();
+                                            l.setEmployeeLeaveRejectionReason(rejReason);
                                             System.out.println("Request Rejected Successfully!!! ");
 
                                         }
@@ -116,8 +118,9 @@ public class LeaveResponse {
                                         } else {
                                             l.setEmployeeLeaveStatus("Rejected");
                                             Input.sc.nextLine();
-                                            System.out.print("Rejection Reason: ");
-                                            l.employeeLeaveRejectionReason = Input.sc.nextLine();
+                                            System.out.println("Rejection Reason: ");
+                                            String rejReason= Input.sc.nextLine();
+                                            l.setEmployeeLeaveRejectionReason(rejReason);
                                             System.out.println("Request Rejected Successfully!!! ");
 
                                         }
