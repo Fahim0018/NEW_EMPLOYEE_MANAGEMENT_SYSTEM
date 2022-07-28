@@ -1,5 +1,6 @@
 package LeaveManager;
 
+import Employee.Employee;
 import Employee.EmployeeTable;
 import Employee.Input;
 import Utils.*;
@@ -17,6 +18,7 @@ public class LeaveApplication {
     public  int startMonth;
     public  int startYear;
     public int receiverID;
+    public String receiverName;
     public  String endDate;
     public int endDay;
     public  int endMonth;
@@ -24,6 +26,8 @@ public class LeaveApplication {
     public String reason;
     public String employeeLeaveStatus;
     public String employeeLeaveRejectionReason;
+    public int userChoice;
+    public int flag =0;
     public String getEmployeeLeaveStatus() {
         return employeeLeaveStatus;
     }
@@ -39,7 +43,7 @@ public class LeaveApplication {
     public void setEmployeeLeaveRejectionReason(String employeeLeaveRejectionReason) {
         this.employeeLeaveRejectionReason = employeeLeaveRejectionReason;
     }
-    public LeaveApplication(){
+    public LeaveApplication(int empID){
         //ID
         while(true) {
             System.out.print("Enter Employee ID: ");
@@ -51,9 +55,6 @@ public class LeaveApplication {
                 System.out.println("---Id not Exist---");
             }
         }
-        System.out.println("Enter Receiver Id:");
-        receiverID = Input.sc.nextInt();
-
         //Leave Type
         System.out.println("-*-*-Select Leave Type-*-*-");
         for (int i = 0; i < 5; i++) {
@@ -61,6 +62,7 @@ public class LeaveApplication {
         }
         while(true) {
             int M = Input.sc.nextInt();
+            userChoice=M;
             if(M<Leaves.leaves.size()) {
                 leaveType = Leaves.leaves.get(M - 1);
                 break;
@@ -92,7 +94,7 @@ public class LeaveApplication {
             while (true) {
                 System.out.print("Enter Ending Date(yyyy-MM-dd): ");
                 endDate = Input.sc.next();
-                if (!Utility.isDatePast(endDate, "yyyy-MM-dd") && Utility.compareDates(startDate,endDate)) {
+                if (!Utility.isDatePast(endDate, "yyyy-MM-dd")) {
                     endDay = Utility.getDay(endDate);
                     endMonth = Utility.getMonth(endDate);
                     endYear = Utility.getYear(endDate);
@@ -110,10 +112,68 @@ public class LeaveApplication {
         leaveDays = ch.numberOfWorkdaysBetween(LocalDate.of(startYear,startMonth,startDay),LocalDate.of(endYear,endMonth,endDay));
         System.out.println("Total Leave Days(Excluding Holidays): "+leaveDays);
 
-        System.out.print("Enter Reason For Leave: ");
-        Input.sc.nextLine();
-        reason=Input.sc.nextLine();
 
-        System.out.println("---Successfully Applied---");
+        Employee e = EmployeeTable.employeeTable.get(empID);
+        if(userChoice==1){
+            if(leaveDays>e.getEmployeeCasualLeave()){
+                System.out.println("---Requested Days Exceeded Allowed Days---");
+                flag=1;
+            }
+            else {
+                System.out.print("Enter Reason For Leave: ");
+                Input.sc.nextLine();
+                reason=Input.sc.nextLine();
+            }
+        }
+        else if (userChoice==2){
+            if(leaveDays>e.getEmployeeAnnualLeave()){
+                System.out.println("---Requested Days Exceeded Allowed Days---");
+                flag=1;
+            }
+            else {
+                System.out.print("Enter Reason For Leave: ");
+                Input.sc.nextLine();
+                reason=Input.sc.nextLine();
+            }
+        }
+        else if (userChoice==3){
+            if(leaveDays>e.getEmployeeMedicalLeave()){
+                System.out.println("---Requested Days Exceeded Allowed Days---");
+                flag=1;
+
+            }
+            else {
+                System.out.print("Enter Reason For Leave: ");
+                Input.sc.nextLine();
+                reason=Input.sc.nextLine();
+            }
+
+        }
+        else if (userChoice==4){
+            if(leaveDays>e.getEmployeePaternityLeave()){
+                System.out.println("---Requested Days Exceeded Allowed Days---");
+                flag=1;
+
+            }
+            else {
+                System.out.print("Enter Reason For Leave: ");
+                Input.sc.nextLine();
+                reason=Input.sc.nextLine();
+            }
+
+        }
+        else if (userChoice==5){
+            if(leaveDays>e.getEmployeeMaternityLeave()){
+                System.out.println("---Requested Days Exceeded Allowed Days---");
+                flag=1;
+
+            }
+            else {
+                System.out.print("Enter Reason For Leave: ");
+                Input.sc.nextLine();
+                reason=Input.sc.nextLine();
+            }
+
+        }
     }
 }

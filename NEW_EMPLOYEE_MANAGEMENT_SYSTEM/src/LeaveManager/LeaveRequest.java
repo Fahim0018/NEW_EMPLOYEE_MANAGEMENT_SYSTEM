@@ -12,29 +12,42 @@ public class LeaveRequest {
     public static ArrayList<LeaveApplication> userLeaveApplications = new ArrayList<>();
 
     public LeaveRequest(int empID){
-        LeaveApplication leave = new LeaveApplication();
+        LeaveApplication leave = new LeaveApplication(empID);
+        if(leave.flag==0) {
+            leave.setEmployeeLeaveStatus("Pending");
 
-        leave.setEmployeeLeaveStatus("Pending");
 
-        int flag = 0;
-        for(Map.Entry<Integer,ArrayList> entry : leaveRequests.entrySet()){
-            if(entry.getKey()==empID){
-                flag=1;
+            for (Map.Entry<Integer, Employee> entry1 : EmployeeTable.employeeTable.entrySet()) {
+                if (entry1.getKey().equals(empID)) {
+                    Employee emp = entry1.getValue();
+                    leave.receiverID = emp.getEmployeeDirectReportingPersonsID();
+                    leave.receiverName = emp.getEmployeeDirectReportingPersonName();
+                }
+            }
+
+
+            int flag = 0;
+            for (Map.Entry<Integer, ArrayList> entry : leaveRequests.entrySet()) {
+                if (entry.getKey() == empID) {
+                    flag = 1;
+                }
+            }
+
+            if (flag != 1) {
+                userLeaveApplications.add(leave);
+                leaveRequests.put(empID, userLeaveApplications);
+                System.out.println("---Successfully Applied---");
+            } else {
+                ArrayList l = leaveRequests.get(empID);
+                l.add(leave);
+                System.out.println("---Successfully Applied---");
             }
         }
-
-        if(flag!=1){
-            userLeaveApplications.add(leave);
-            leaveRequests.put(empID,userLeaveApplications);
-        }
-        else{
-            ArrayList l = leaveRequests.get(empID);
-            l.add(leave);
+        else {
+            System.out.println("\n\n----Try again with valid requests---");
         }
 
     }
-    public void removeRequest(int empID,int reqNumber){
-        ArrayList l = leaveRequests.get(empID);
-        l.remove(reqNumber-1);
-    }
+
+
 }
