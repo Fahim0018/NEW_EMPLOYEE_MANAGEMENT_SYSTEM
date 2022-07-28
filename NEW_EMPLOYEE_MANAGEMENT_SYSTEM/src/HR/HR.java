@@ -1,5 +1,6 @@
 package HR;
 
+import CEO.CEO;
 import Employee.*;
 import Employee.Input;
 import Utils.Leaves;
@@ -14,7 +15,8 @@ public class HR {
     public static final String hrName = "ashish";
     public static final String hrPass="1";
     public int count=0;
-    
+    public String currRole;
+
 
     public static HashMap<String, ArrayList> departmentTeam = new HashMap<>();
 
@@ -23,17 +25,32 @@ public class HR {
         department.add(dep);
     }
 
-    public void addTeamsToDepartment(String depName){
-        for(String dept:department){
-            ArrayList<String> teamList = new ArrayList<>();
-            System.out.println("enter the no. of teams to be added in "+ dept);
-            int n = Input.sc.nextInt();
-            for (int i = 0; i < n; i++) {
-                System.out.println("Enter Team "+i+" Name:");
-                teamList.add(Input.sc.nextLine());
+    public void addTeamsToDepartment(){
+        if(!department.isEmpty()) {
+            for (String dep : department) {
+                System.out.println("->" + dep);
             }
-            teamList.add("None");
-            departmentTeam.put(dept,teamList);
+            Input.sc.nextLine();
+            System.out.println("Enter department name in which teams to be added");
+            String depName = Input.sc.nextLine();
+            for (String dept : department) {
+                if (dept.equals(depName)) {
+                    ArrayList teamList = departmentTeam.get(depName);
+                    System.out.println("enter the no. of teams to be added in " + dept);
+                    int n = Input.sc.nextInt();
+                    for (int i = 0; i < n; i++) {
+                        Input.sc.nextLine();
+                        System.out.println("Enter Team Name:");
+                        teamList.add(Input.sc.nextLine());
+
+                    }
+
+                    departmentTeam.put(dept, teamList);
+                }
+            }
+        }
+        else {
+            System.out.println("\n----Add Department First----\n");
         }
     }
 
@@ -115,8 +132,11 @@ public class HR {
             }
 
             //Age
-            System.out.print("Employee Age: ");
-            empL.setEmployeeAge(Input.sc.nextInt());
+            System.out.print("Employee D.O.B.(yyyy-MM-dd): ");
+            String DOB = Input.sc.next();
+            int age =Utility.parseDate(DOB);
+            System.out.println("\nEmployee Age: "+age);
+            empL.setEmployeeAge(age);
 
 
             //Contact Number
@@ -142,14 +162,17 @@ public class HR {
             switch (inp) {
                 case "1": {
                     empL.setEmployeeRole("Department Head");
+                    currRole="Department Head";
                     break;
                 }
                 case "2": {
                     empL.setEmployeeRole("Team Head");
+                    currRole="Team Head";
                     break;
                 }
                 case "3": {
                     empL.setEmployeeRole("Team Member");
+                    currRole="Team Member";
                     break;
                 }
             }
@@ -196,11 +219,39 @@ public class HR {
 
 
 
+            if(EmployeeTable.employeeTable.isEmpty()){
+                System.out.println("\nAvailable reporting to Person");
+                System.out.println(CEO.ceoName + ":" + "ID-" + CEO.ceoID+"  Role-CEO");
+            }
+            else{
+                if(currRole.equals("Departmen Head")) {
+                    System.out.println("\nAvailable reporting to Person");
+                    System.out.println(CEO.ceoName + ":" + "ID-" + CEO.ceoID+"  Role-CEO");
+                }
+                else {
+                    System.out.println("\nAvailable reporting to Person");
+                    System.out.println(CEO.ceoName + ":" + "ID-" + CEO.ceoID+"  Role-CEO");
+                    for (Map.Entry<Integer, Employee> entry : EmployeeTable.employeeTable.entrySet()) {
+                        Employee emp = entry.getValue();
+                        if (currRole.equals("Team Head")){
+                            if(emp.employeeRole.equals("Department Head")){
+                                System.out.println(emp.employeeName +":"+ "ID-"+emp.employeeID +"  Role-DepartmentHead");
+                            }
+                        } else if (currRole.equals("Team Member")) {
+                            if(emp.employeeRole.equals("Department Head")||emp.employeeRole.equals("Team Head")){
+                                System.out.println(emp.employeeName +":"+ "ID-"+emp.employeeID +"  Role-"+emp.employeeRole);
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
             //direct reporting person
             System.out.print("\nDirect Reporting Person: ");
             Input.sc.nextLine();
             empL.setEmployeeDirectReportingPersonName(Input.sc.nextLine());
-
 
             while (true) {
                 System.out.print("\nDirect Reporting Person's ID: ");

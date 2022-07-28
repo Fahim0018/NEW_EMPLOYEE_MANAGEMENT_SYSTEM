@@ -111,8 +111,9 @@ public class SystemController {
                           2.)Remove Employee
                           3.)Update Employee
                           4.)Show All Employees
-                          5.)Add New Department                         
-                          6.)Logout
+                          5.)Add New Department  
+                          6.)Add Teams To Department                       
+                          7.)Logout
                           """);
                           int hrOption = Input.sc.nextInt();
                           switch (hrOption){
@@ -149,8 +150,13 @@ public class SystemController {
                                   System.out.println("\n");
                                   break;
                               }
-
                               case 6:{
+                                  hr.addTeamsToDepartment();
+                                  System.out.println("\n");
+                                  break;
+                              }
+
+                              case 7:{
                                   Login=0;
                                   System.out.println("\n");
                                   break;

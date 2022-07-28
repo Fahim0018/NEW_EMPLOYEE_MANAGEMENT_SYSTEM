@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.Period;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -110,6 +111,26 @@ public class Utility {
 
 
 
+    }
+    public static int parseDate(String DOB)
+    {
+
+        LocalDate dob = LocalDate.parse(DOB);
+
+        return calculateAge(dob);
+    }
+
+    public static int calculateAge(LocalDate dob)
+    {
+        LocalDate curDate = LocalDate.now();
+        if ((dob != null) && (curDate != null))
+        {
+            return Period.between(dob, curDate).getYears();
+        }
+        else
+        {
+            return 0;
+        }
     }
 
 

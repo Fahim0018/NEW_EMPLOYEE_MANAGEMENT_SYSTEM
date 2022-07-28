@@ -16,7 +16,7 @@ public class Employee {
     public int employeeDirectReportingPersonsID;
     public String employeeMaritalStatus;
     public String employeeJoiningDate;
-
+    public String employeeDOB;
 
 
     public int employeeCasualLeave;
@@ -211,5 +211,11 @@ public class Employee {
         this.employeeTotalLeaves = employeeTotalLeaves;
     }
 
+    public String getEmployeeDOB() {
+        return employeeDOB;
+    }
 
+    public void setEmployeeDOB(String employeeDOB) {
+        this.employeeDOB = employeeDOB;
+    }
 }
